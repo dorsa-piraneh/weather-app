@@ -135,9 +135,8 @@ p {
 }
 
 .location-info {
-  font-size: 35px;
+  font-size: 30px;
 }
-
 
 .temperature-value {
   font-size: 80px;
@@ -157,12 +156,20 @@ p {
 
 .weather-status {
   margin-top: -20px;
-  margin-bottom: 4px;
 }
+
 .weather-status,
 .temperature-range {
   font-size: 18px;
   opacity: 0.8;
+}
+
+.weather-description {
+  font-size: 14px;
+  text-transform: capitalize;
+  opacity: 0.6;
+  margin-bottom: 6px;
+  letter-spacing: 0.9px;
 }
 
 .weather-icon {
@@ -250,7 +257,7 @@ p {
   }
 
   .location-info {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .weather-icon {
@@ -271,6 +278,10 @@ p {
 
   .weather-status {
     margin-top: -12px;
+  }
+
+  .weather-description {
+    font-size: 12px;
   }
 
   .detail-icon {
@@ -297,7 +308,7 @@ p {
   }
 
   .location-info {
-    font-size: 26px;
+    font-size: 22px;
   }
 
   .weather-icon {
@@ -318,6 +329,10 @@ p {
 
   .weather-status {
     margin-top: -8px;
+  }
+
+  .weather-description {
+    font-size: 10px;
   }
 
   .detail-icon {
