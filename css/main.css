@@ -138,6 +138,7 @@ p {
   font-size: 35px;
 }
 
+
 .temperature-value {
   font-size: 80px;
 }
@@ -248,7 +249,7 @@ p {
     font-size: 13px;
   }
 
-  .city-name {
+  .location-info {
     font-size: 28px;
   }
 
@@ -295,7 +296,7 @@ p {
     font-size: 12px;
   }
 
-  .city-name {
+  .location-info {
     font-size: 26px;
   }
 

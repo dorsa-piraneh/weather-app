@@ -1,9 +1,9 @@
 /* ========================================================================================
                                      DOM ELEMENTS
 ======================================================================================== */
-
+// https://api.openweathermap.org/data/2.5/weather?q=tehran&units=metric&lang=fa&appid=26c4d8ad14b57209671494df9bd9fcb9
 const apiKey = '3a91106135bfc1f3d72d9cc9da090783';
-
+const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q=tehran&units=metric&lang=fa&appid=26c4d8ad14b57209671494df9bd9fcb9'
 /* ========================================================================================
                                      INITIAL STATE
 ======================================================================================== */
@@ -15,3 +15,8 @@ const apiKey = '3a91106135bfc1f3d72d9cc9da090783';
 /* ========================================================================================
                                       EVENT LISTENERS
 ======================================================================================== */
+fetch('https://api.openweathermap.org/data/2.5/weather?q=tehran&units=metric&appid=26c4d8ad14b57209671494df9bd9fcb9')
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+  });
