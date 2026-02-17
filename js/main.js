@@ -30,6 +30,22 @@ const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const showLoader = () => loader.classList.remove('hide');
 const hideLoader = () => loader.classList.add('hide');
 
+const showErrorAlert = (message) => {
+  Swal.fire({
+    icon: 'error',
+    text: message,
+    showConfirmButton: true,
+    confirmButtonText: 'OK',
+    iconColor: '#d90429',
+    customClass: {
+      container: 'popup-container',
+      popup: 'my-popup',
+      icon: 'popup-icon',
+      confirmButton: 'popup-confirm-button',
+    },
+  });
+};
+
 const fetchCityWeather = async (city) => {
   try {
     const response = await fetch(`${baseUrl}?q=${city}&units=metric&appid=${apiKey}`);
@@ -39,15 +55,14 @@ const fetchCityWeather = async (city) => {
       const firstChar = data.message[0].toUpperCase();
       const remainingChars = data.message.slice(1, data.message.length);
       const errorMessage = firstChar + remainingChars;
-
-      alert(errorMessage);
+      showErrorAlert(errorMessage);
       return;
     }
 
     return data;
   } catch (error) {
     console.error(error);
-    alert('Something went wrong. Please try again.');
+    showErrorAlert('Something went wrong. Please try again.');
   } finally {
     // hideLoader();
   }
@@ -62,7 +77,6 @@ const updateWeather = async (city) => {
 const renderWeather = (weatherData) => {
   searchInput.value = '';
 
-  // showLoader()
   weatherIcon.src = `./assets/icons/3D-Icons/${weatherData.weather[0].main}.svg`;
   weatherIcon.onload = () => hideLoader();
 
@@ -76,13 +90,12 @@ const renderWeather = (weatherData) => {
   pressureValue.textContent = `${weatherData.main.pressure} hPa`;
   humidityValue.textContent = `${weatherData.main.humidity}%`;
   windValue.textContent = `${weatherData.wind.speed} m/s`;
-
 };
 
 const handleSearchClick = () => {
   const searchedCity = searchInput.value.trim().toLowerCase();
   if (!searchedCity) {
-    alert('Please enter a city name before searching.');
+    showErrorAlert('No city entered. Please try again.')
     return;
   }
 
