@@ -1,0 +1,337 @@
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/fonts/Rubik/Rubik-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --primary-color: #504ee5;
+  --secondary-color: #7c83e2;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background: #939ef8;
+  background: linear-gradient(90deg, rgba(147, 158, 248, 1) 0%, rgba(153, 159, 247, 1) 100%);
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.shape {
+  background-color: var(--secondary-color);
+}
+
+.shape-one {
+  width: 190px;
+  height: 190px;
+  top: 30px;
+  right: -115px;
+}
+
+.shape-two {
+  width: 170px;
+  height: 170px;
+  bottom: -55px;
+  left: -70px;
+}
+
+.weather-app {
+  width: 480px;
+  width: clamp(300px, 16vw + 300px, 480px);
+  border: 1.5px solid rgba(255, 255, 255, 0.205);
+  color: #fafafa;
+  background-color: rgba(0, 0, 0, 0.031);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.205) inset;
+}
+
+.app-title {
+  color: var(--primary-color);
+}
+
+.search-input {
+  flex-grow: 5;
+  background: none;
+  outline: none;
+  font-family: inherit;
+  color: #fafafa;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.362) !important;
+}
+
+.search-input::placeholder {
+  color: #fafafa90;
+}
+
+.search-btn {
+  flex-grow: 1;
+  border: none;
+  font-size: 14px;
+  background-color: rgba(250, 250, 250, 0.5);
+  color: var(--primary-color);
+  box-shadow: 0 0 6px 1px #ffffff42;
+  transition: transform 0.3s;
+}
+
+.search-btn:hover {
+  transform: scale(0.95);
+}
+
+.city-name {
+  font-size: 35px;
+}
+
+.temperature-value {
+  font-size: 80px;
+}
+
+.city-name,
+.temperature-value {
+  color: #fafafac7;
+  text-shadow: 3px 2px 10px rgba(80, 78, 229, 0.95);
+}
+
+.current-temperature .temperature-unit {
+  font-size: 70px;
+  opacity: 0.7;
+  text-shadow: 3px 2px 10px rgba(80, 78, 229, 0.95);
+}
+
+.weather-status {
+  margin-top: -20px;
+  margin-bottom: 4px;
+}
+.weather-status,
+.temperature-range {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.weather-icon {
+  width: 110px;
+}
+
+.range-divider::after {
+  content: '';
+  display: inline;
+  position: absolute;
+  width: 0.5px;
+  height: 20px;
+  background-color: #fafafa;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.weather-details {
+  background-color: rgba(250, 250, 250, 0.5);
+  box-shadow: 0 0 6px 1px #ffffff42;
+}
+
+.detail-icon {
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+.detail-value {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.detail-label {
+  font-size: 12px;
+  color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .weather-app {
+    width: 400px;
+  }
+
+  .shape-one {
+    width: 170px;
+    height: 170px;
+    right: -75px;
+  }
+
+  .shape-two {
+    width: 150px;
+    height: 150px;
+    left: -60px;
+  }
+
+  .detail-icon {
+    font-size: 16px;
+  }
+
+  .detail-value {
+    font-size: 14px;
+  }
+
+  .detail-label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .shape-one,
+  .shape-two {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-app {
+    width: 370px;
+    padding: 38px !important;
+  }
+
+  .search-input-group > * {
+    font-size: 13px;
+  }
+
+  .city-name {
+    font-size: 28px;
+  }
+
+  .weather-icon {
+    width: 90px;
+  }
+
+  .temperature-value {
+    font-size: 60px;
+  }
+  .current-temperature .temperature-unit {
+    font-size: 50px;
+  }
+
+  .weather-status,
+  .temperature-range {
+    font-size: 14px;
+  }
+
+  .weather-status {
+    margin-top: -12px;
+  }
+
+  .detail-icon {
+    font-size: 18px;
+  }
+
+  .detail-value {
+    font-size: 13px;
+  }
+
+  .detail-label {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .weather-app {
+    width: 300px;
+    padding: 24px !important;
+  }
+
+  .search-input-group > * {
+    font-size: 12px;
+  }
+
+  .city-name {
+    font-size: 26px;
+  }
+
+  .weather-icon {
+    width: 70px;
+  }
+
+  .temperature-value {
+    font-size: 50px;
+  }
+  .current-temperature .temperature-unit {
+    font-size: 40px;
+  }
+
+  .weather-status,
+  .temperature-range {
+    font-size: 13px;
+  }
+
+  .weather-status {
+    margin-top: -8px;
+  }
+
+  .detail-icon {
+    font-size: 16px;
+  }
+
+  .detail-value {
+    font-size: 12px;
+  }
+
+  .detail-label {
+    font-size: 10px;
+  }
+
+  .weather-details {
+    gap: 18px !important;
+  }
+}
