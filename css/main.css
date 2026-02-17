@@ -134,7 +134,7 @@ p {
   transform: scale(0.95);
 }
 
-.city-name {
+.location-info {
   font-size: 35px;
 }
 
@@ -142,7 +142,7 @@ p {
   font-size: 80px;
 }
 
-.city-name,
+.location-info,
 .temperature-value {
   color: #fafafac7;
   text-shadow: 3px 2px 10px rgba(80, 78, 229, 0.95);
