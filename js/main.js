@@ -1,6 +1,7 @@
 /* ========================================================================================
                                      DOM ELEMENTS
 ======================================================================================== */
+const loader = document.querySelector('.loader-container');
 const searchInput = document.querySelector('#searchInput');
 const searchBtn = document.querySelector('#searchBtn');
 const cityName = document.querySelector('.city-name');
@@ -26,6 +27,9 @@ const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
                                       FUNCTIONS
 ======================================================================================== */
 
+const showLoader = () => loader.classList.remove('hide');
+const hideLoader = () => loader.classList.add('hide');
+
 const fetchCityWeather = async (city) => {
   try {
     const response = await fetch(`${baseUrl}?q=${city}&units=metric&appid=${apiKey}`);
@@ -44,6 +48,8 @@ const fetchCityWeather = async (city) => {
   } catch (error) {
     console.error(error);
     alert('Something went wrong. Please try again.');
+  } finally {
+    // hideLoader();
   }
 };
 
@@ -55,10 +61,13 @@ const updateWeather = async (city) => {
 
 const renderWeather = (weatherData) => {
   searchInput.value = '';
-  console.log(weatherData);
+
+  // showLoader()
+  weatherIcon.src = `./assets/icons/3D-Icons/${weatherData.weather[0].main}.svg`;
+  weatherIcon.onload = () => hideLoader();
+
   cityName.textContent = `${weatherData.name},`;
   countryCode.textContent = weatherData.sys.country;
-  weatherIcon.src = `./assets/icons/3D-Icons/${weatherData.weather[0].main}.svg`;
   temperatureValue.textContent = Math.round(weatherData.main.temp);
   weatherStatus.textContent = weatherData.weather[0].main;
   weatherDescription.textContent = weatherData.weather[0].description;
@@ -67,6 +76,7 @@ const renderWeather = (weatherData) => {
   pressureValue.textContent = `${weatherData.main.pressure} hPa`;
   humidityValue.textContent = `${weatherData.main.humidity}%`;
   windValue.textContent = `${weatherData.wind.speed} m/s`;
+
 };
 
 const handleSearchClick = () => {
