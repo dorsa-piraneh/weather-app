@@ -27,8 +27,8 @@ const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
                                       FUNCTIONS
 ======================================================================================== */
 
-const showLoader = () => loader.classList.remove('hide');
-const hideLoader = () => loader.classList.add('hide');
+const showLoading = () => loader.classList.remove('hide');
+const hideLoading = () => loader.classList.add('hide');
 
 const showErrorAlert = (message) => {
   Swal.fire({
@@ -47,6 +47,7 @@ const showErrorAlert = (message) => {
 };
 
 const fetchCityWeather = async (city) => {
+  showLoading()
   try {
     const response = await fetch(`${baseUrl}?q=${city}&units=metric&appid=${apiKey}`);
     const data = await response.json();
@@ -64,7 +65,7 @@ const fetchCityWeather = async (city) => {
     console.error(error);
     showErrorAlert('Something went wrong. Please try again.');
   } finally {
-    // hideLoader();
+    // hideLoading();
   }
 };
 
@@ -78,7 +79,7 @@ const renderWeather = (weatherData) => {
   searchInput.value = '';
 
   weatherIcon.src = `./assets/icons/3D-Icons/${weatherData.weather[0].main}.svg`;
-  weatherIcon.onload = () => hideLoader();
+  weatherIcon.onload = () => hideLoading();
 
   cityName.textContent = `${weatherData.name},`;
   countryCode.textContent = weatherData.sys.country;
