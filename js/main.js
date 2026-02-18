@@ -57,6 +57,7 @@ const fetchCityWeather = async (city) => {
       const remainingChars = data.message.slice(1, data.message.length);
       const errorMessage = firstChar + remainingChars;
       showErrorAlert(errorMessage);
+      hideLoading()
       return;
     }
 
@@ -112,3 +113,8 @@ window.addEventListener('load', () => {
 });
 
 searchBtn.addEventListener('click', handleSearchClick);
+document.addEventListener('keyup' , (event) => {
+  if(event.key === 'Enter') {
+    handleSearchClick()
+  }
+})
