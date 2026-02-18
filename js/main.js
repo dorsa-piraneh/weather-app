@@ -47,7 +47,7 @@ const showErrorAlert = (message) => {
 };
 
 const fetchCityWeather = async (city) => {
-  showLoading()
+  showLoading();
   try {
     const response = await fetch(`${baseUrl}?q=${city}&units=metric&appid=${apiKey}`);
     const data = await response.json();
@@ -57,7 +57,7 @@ const fetchCityWeather = async (city) => {
       const remainingChars = data.message.slice(1, data.message.length);
       const errorMessage = firstChar + remainingChars;
       showErrorAlert(errorMessage);
-      hideLoading()
+      hideLoading();
       return;
     }
 
@@ -97,11 +97,17 @@ const renderWeather = (weatherData) => {
 const handleSearchClick = () => {
   const searchedCity = searchInput.value.trim().toLowerCase();
   if (!searchedCity) {
-    showErrorAlert('No city entered. Please try again.')
+    showErrorAlert('No city entered. Please try again.');
     return;
   }
 
   updateWeather(searchedCity);
+};
+
+const focusSearchInput = () => {
+  setTimeout(() => {
+    searchInput.focus();
+  }, 100);
 };
 
 /* ========================================================================================
@@ -110,11 +116,12 @@ const handleSearchClick = () => {
 
 window.addEventListener('load', () => {
   updateWeather('Montreal');
+  focusSearchInput();
 });
 
 searchBtn.addEventListener('click', handleSearchClick);
-document.addEventListener('keyup' , (event) => {
-  if(event.key === 'Enter') {
-    handleSearchClick()
+document.addEventListener('keyup', (event) => {
+  if (event.key === 'Enter') {
+    handleSearchClick();
   }
-})
+});
