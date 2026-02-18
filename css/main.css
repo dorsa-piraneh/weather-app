@@ -104,7 +104,11 @@ p {
 }
 
 .app-title {
-  color: var(--primary-color);
+  background: radial-gradient(var(--primary-color) , var(--secondary-color));
+  color: transparent;
+  background-clip: text;
+  font-size: 36px;
+  letter-spacing: 2.2px;
 }
 
 .search-input {
@@ -134,7 +138,11 @@ p {
   transform: scale(0.95);
 }
 
-.location-info {
+.location-icon {
+  font-size: 28px;
+}
+
+.city-name , .country-code {
   font-size: 30px;
 }
 
@@ -342,11 +350,19 @@ p {
     padding: 38px !important;
   }
 
+  .app-title {
+    font-size: 30px;
+  }
+
   .search-input-group > * {
     font-size: 13px;
   }
 
-  .location-info {
+  .location-icon {
+    font-size: 22px;
+  }
+
+  .city-name , .country-code {
     font-size: 24px;
   }
 
@@ -393,11 +409,20 @@ p {
     padding: 24px !important;
   }
 
+   .app-title {
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+
   .search-input-group > * {
     font-size: 12px;
   }
 
-  .location-info {
+  .location-icon {
+    font-size: 20px;
+  }
+
+  .city-name , .country-code {
     font-size: 22px;
   }
 
