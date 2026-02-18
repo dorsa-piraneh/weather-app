@@ -121,7 +121,7 @@ window.addEventListener('load', () => {
 
 searchBtn.addEventListener('click', handleSearchClick);
 document.addEventListener('keyup', (event) => {
-  if (event.key === 'Enter') {
+  if (event.key === 'Enter' && document.activeElement === searchInput) {
     handleSearchClick();
   }
 });
